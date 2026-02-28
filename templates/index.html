@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Payment Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Online Payment Fraud Detection</h1>
+
+    <form action="/predict" method="post">
+        <input type="number" name="step" placeholder="Step (Time)" required>
+
+        <select name="type" required>
+            <option value="">Select Transaction Type</option>
+            <option value="CASH_IN">CASH_IN</option>
+            <option value="CASH_OUT">CASH_OUT</option>
+            <option value="DEBIT">DEBIT</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="TRANSFER">TRANSFER</option>
+        </select>
+
+        <input type="number" step="any" name="amount" placeholder="Transaction Amount" required>
+        <input type="number" step="any" name="oldbalanceOrg" placeholder="Old Balance (Sender)" required>
+        <input type="number" step="any" name="newbalanceOrig" placeholder="New Balance (Sender)" required>
+        <input type="number" step="any" name="oldbalanceDest" placeholder="Old Balance (Receiver)" required>
+        <input type="number" step="any" name="newbalanceDest" placeholder="New Balance (Receiver)" required>
+
+        <button type="submit">Detect Fraud</button>
+    </form>
+</div>
+
+</body>
+</html>
